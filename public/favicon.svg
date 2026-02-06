@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Steinbots favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="25%" r="75%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feOffset in="blur" dx="0" dy="10" result="off"/>
+      <feColorMatrix
+        in="off"
+        type="matrix"
+        values="0 0 0 0 0.02  0 0 0 0 0.07  0 0 0 0 0.16  0 0 0 0.25 0"
+        result="shadow"
+      />
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="120" fill="url(#glow)"/>
+
+  <g filter="url(#shadow)">
+    <!-- Chat bubble -->
+    <path
+      d="M150 170 h212 a70 70 0 0 1 70 70 v62 a70 70 0 0 1 -70 70 h-88 l-52 44 v-44 h-72 a70 70 0 0 1 -70 -70 v-62 a70 70 0 0 1 70 -70 z"
+      fill="#ffffff"
+      fill-opacity="0.98"
+    />
+
+    <!-- Message dots -->
+    <circle cx="208" cy="271" r="18" fill="#2563eb" fill-opacity="0.92"/>
+    <circle cx="256" cy="271" r="18" fill="#2563eb" fill-opacity="0.92"/>
+    <circle cx="304" cy="271" r="18" fill="#2563eb" fill-opacity="0.92"/>
+  </g>
+
+  <!-- Subtle corner highlights -->
+  <path
+    d="M92 120 C 150 70, 230 56, 316 64"
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity="0.18"
+    stroke-width="18"
+    stroke-linecap="round"
+  />
+  <path
+    d="M420 392 C 370 448, 298 470, 222 466"
+    fill="none"
+    stroke="#0f172a"
+    stroke-opacity="0.08"
+    stroke-width="16"
+    stroke-linecap="round"
+  />
+</svg>
