@@ -42,10 +42,10 @@ export default function Hero() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
             </a>
             <a
-              href="#features"
+              href="#assistant"
               className="bg-white text-gray-700 px-8 py-4 rounded-xl hover:bg-gray-50 transition border-2 border-gray-200 text-lg font-semibold shadow-md"
             >
-              View Features
+              Moltbot Executive Assistant
             </a>
           </div>
 
