@@ -35,7 +35,7 @@ export default function Pricing() {
               <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">Complete AI Package</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1">AI Salesforce With Website Package</h3>
                     <p className="text-blue-100">Everything you need to get started</p>
                   </div>
                   <div className="flex items-center space-x-1">
