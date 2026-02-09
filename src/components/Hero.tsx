@@ -43,10 +43,10 @@ export default function Hero() {
             </a>
             <a
               href="#assistant"
-              className="group bg-white text-gray-700 px-8 py-4 rounded-xl hover:bg-gray-50 transition flex items-center space-x-2 border-2 border-gray-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="group bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <span className="text-lg font-semibold">Moltbot Executive Assistant</span>
-              <ArrowRight className="w-5 h-5 text-gray-500 group-hover:translate-x-1 transition" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
             </a>
           </div>
 
