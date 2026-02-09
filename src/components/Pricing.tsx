@@ -24,7 +24,7 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to automate and grow your business, starting at just $199.99/month
+            Everything you need to automate and grow your business, starting at just $199.99*/month
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export default function Pricing() {
 
               <div className="p-8 sm:p-12">
                 <div className="flex items-baseline mb-8">
-                  <span className="text-5xl font-bold text-gray-900">$199.99</span>
+                  <span className="text-5xl font-bold text-gray-900">$199.99*</span>
                   <span className="text-2xl text-gray-600 ml-2">/month</span>
                 </div>
 
@@ -74,6 +74,10 @@ export default function Pricing() {
 
                 <p className="text-center text-sm text-gray-500 mt-6">
                   No setup fees • Cancel anytime • Free onboarding
+                </p>
+                <p className="text-center text-xs text-gray-500 mt-3">
+                  * You also pay AI usage fees (based on chat + call volume). For most small businesses, this is
+                  $25–$50/month.
                 </p>
               </div>
             </div>

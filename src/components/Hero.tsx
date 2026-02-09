@@ -35,7 +35,7 @@ export default function Hero() {
               href="#pricing"
               className="group bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              <span className="text-lg font-semibold">Start at $199.99/month</span>
+              <span className="text-lg font-semibold">Start at $199.99*/month</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
             </a>
             <a
