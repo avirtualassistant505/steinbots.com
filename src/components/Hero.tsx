@@ -36,7 +36,7 @@ export default function Hero() {
               className="group bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <div className="flex flex-col items-start leading-tight">
-                <span className="text-lg font-semibold">Complete AI Website w/AI Salesforce Package</span>
+                <span className="text-lg font-semibold">AI Salesforce With Website Package</span>
                 <span className="text-sm font-medium opacity-90">Start at $199.99*/month</span>
               </div>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
