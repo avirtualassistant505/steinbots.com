@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales VA Application — Steinbots + AI Voice Receptionist</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+      body { margin: 0; background: #fff; }
+      .va-thanks { display:none; max-width: 920px; margin: 12px auto 0; padding: 12px 16px; border-radius: 10px; background: #ecfdf5; color: #065f46; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="thanks" class="va-thanks">Thanks — your application was submitted.</div>
+
+    <section class="va-form-wrap">
+      <form id="vaApplicationForm" class="va-form" method="POST" action="/api/va-apply" novalidate>
+        <input type="hidden" name="role" value="Sales VA - Steinbots + AI Voice Receptionist" />
+
+        <!-- Honeypot (anti-spam) -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <header class="va-form__header">
+          <h2>Sales VA Application — Steinbots + AI Voice Receptionist</h2>
+          <p>
+            Please answer as clearly as possible. This helps us compare candidates fairly.
+          </p>
+        </header>
+
+        <!-- 1) Contact Info -->
+        <fieldset class="va-fieldset">
+          <legend>1) Contact Information</legend>
+          <div class="va-grid">
+            <div class="va-field">
+              <label for="fullName">Full name <span class="req">*</span></label>
+              <input id="fullName" name="full_name" type="text" required />
+              <small class="err" data-err-for="fullName"></small>
+            </div>
+            <div class="va-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required />
+              <small class="err" data-err-for="email"></small>
+            </div>
+            <div class="va-field">
+              <label for="phone">Phone / WhatsApp (optional)</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+            <div class="va-field">
+              <label for="country">Country <span class="req">*</span></label>
+              <input id="country" name="country" type="text" required />
+              <small class="err" data-err-for="country"></small>
+            </div>
+            <div class="va-field">
+              <label for="timezone">Your time zone (e.g., UTC+1, EST, PST) <span class="req">*</span></label>
+              <input id="timezone" name="timezone" type="text" required />
+              <small class="err" data-err-for="timezone"></small>
+            </div>
+            <div class="va-field">
+              <label for="linkedin">LinkedIn / Resume link (optional but recommended)</label>
+              <input id="linkedin" name="linkedin_or_resume_url" type="url" placeholder="https://..." />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 2) Availability -->
+        <fieldset class="va-fieldset">
+          <legend>2) Availability &amp; Working Hours</legend>
+          <div class="va-field">
+            <label>
+              Can you work during Canadian business hours:
+              <strong>8:00 AM – 5:00 PM Central Time (Winnipeg) (CST/CDT)</strong>?
+              <span class="req">*</span>
+            </label>
+            <div class="va-radio-row">
+              <label class="va-radio">
+                <input type="radio" name="can_work_central_hours" value="yes_full_overlap" required />
+                Yes (full overlap)
+              </label>
+              <label class="va-radio">
+                <input type="radio" name="can_work_central_hours" value="partial_overlap" required />
+                Partial overlap
+              </label>
+              <label class="va-radio">
+                <input type="radio" name="can_work_central_hours" value="no" required />
+                No
+              </label>
+            </div>
+            <small class="err" data-err-for="can_work_central_hours"></small>
+          </div>
+
+          <div class="va-grid">
+            <div class="va-field">
+              <label for="hoursAvailable">What hours are you available to work? <span class="req">*</span></label>
+              <input id="hoursAvailable" name="hours_available" type="text" placeholder="Example: Mon–Fri 9am–5pm CST" required />
+              <small class="err" data-err-for="hoursAvailable"></small>
+            </div>
+            <div class="va-field" id="partialOverlapWrap" style="display:none;">
+              <label for="partialOverlap">If partial overlap, specify exact overlap hours</label>
+              <input id="partialOverlap" name="partial_overlap_hours" type="text" placeholder="Example: 10am–2pm CST" />
+            </div>
+            <div class="va-field">
+              <label for="hoursPerWeek">How many hours per week are you available? <span class="req">*</span></label>
+              <input id="hoursPerWeek" name="hours_per_week" type="number" min="1" max="80" required />
+              <small class="err" data-err-for="hoursPerWeek"></small>
+            </div>
+            <div class="va-field">
+              <label for="startDate">How soon can you start on the first project? <span class="req">*</span></label>
+              <select id="startDate" name="start_timeline" required>
+                <option value="">Select one</option>
+                <option value="immediately">Immediately</option>
+                <option value="within_1_week">Within 1 week</option>
+                <option value="within_2_weeks">Within 2 weeks</option>
+                <option value="more_than_2_weeks">More than 2 weeks</option>
+              </select>
+              <small class="err" data-err-for="startDate"></small>
+            </div>
+          </div>
+
+          <div class="va-grid">
+            <div class="va-field">
+              <label for="quietSpace">Do you have a quiet calling environment? <span class="req">*</span></label>
+              <select id="quietSpace" name="quiet_calling_environment" required>
+                <option value="">Select one</option>
+                <option value="yes">Yes</option>
+                <option value="mostly">Mostly</option>
+                <option value="no">No</option>
+              </select>
+              <small class="err" data-err-for="quietSpace"></small>
+            </div>
+            <div class="va-field">
+              <label for="headset">Do you have a professional headset? <span class="req">*</span></label>
+              <select id="headset" name="has_headset" required>
+                <option value="">Select one</option>
+                <option value="yes">Yes</option>
+                <option value="can_get_one">Not yet, but I can get one</option>
+                <option value="no">No</option>
+              </select>
+              <small class="err" data-err-for="headset"></small>
+            </div>
+            <div class="va-field">
+              <label for="internet">Reliable internet + backup plan? <span class="req">*</span></label>
+              <select id="internet" name="reliable_internet_backup" required>
+                <option value="">Select one</option>
+                <option value="yes_backup">Yes (with backup)</option>
+                <option value="yes_no_backup">Yes (no backup)</option>
+                <option value="not_reliable">Not reliable</option>
+              </select>
+              <small class="err" data-err-for="internet"></small>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 3) Pay -->
+        <fieldset class="va-fieldset">
+          <legend>3) Pay Expectations</legend>
+          <div class="va-grid">
+            <div class="va-field">
+              <label for="currency">Currency <span class="req">*</span></label>
+              <select id="currency" name="pay_currency" required>
+                <option value="">Select one</option>
+                <option value="CAD">CAD</option>
+                <option value="USD">USD</option>
+                <option value="other">Other</option>
+              </select>
+              <small class="err" data-err-for="currency"></small>
+            </div>
+            <div class="va-field">
+              <label for="hourlyRate">Expected hourly rate <span class="req">*</span></label>
+              <input id="hourlyRate" name="expected_hourly_rate" type="number" min="1" step="0.5" required />
+              <small class="err" data-err-for="hourlyRate"></small>
+            </div>
+            <div class="va-field">
+              <label for="compStructure">Preferred compensation structure <span class="req">*</span></label>
+              <select id="compStructure" name="comp_structure" required>
+                <option value="">Select one</option>
+                <option value="hourly_only">Hourly only</option>
+                <option value="hourly_plus_bonus">Hourly + performance bonus</option>
+                <option value="hourly_plus_commission">Hourly + commission</option>
+                <option value="commission_heavy">Commission-heavy</option>
+              </select>
+              <small class="err" data-err-for="compStructure"></small>
+            </div>
+            <div class="va-field">
+              <label for="retainer">Open to a monthly retainer? <span class="req">*</span></label>
+              <select id="retainer" name="open_to_retainer" required>
+                <option value="">Select one</option>
+                <option value="yes">Yes</option>
+                <option value="maybe">Maybe</option>
+                <option value="no">No</option>
+              </select>
+              <small class="err" data-err-for="retainer"></small>
+            </div>
+          </div>
+          <div class="va-field">
+            <label for="payNotes">Any notes on pay expectations (optional)</label>
+            <textarea id="payNotes" name="pay_notes" rows="3" placeholder="Example: rate depends on hours, commission expectations, etc."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 4) Cold Calling / Sales -->
+        <fieldset class="va-fieldset">
+          <legend>4) Cold Calling &amp; Sales Experience</legend>
+          <div class="va-field">
+            <label>Do you have cold calling experience? <span class="req">*</span></label>
+            <div class="va-radio-row">
+              <label class="va-radio">
+                <input type="radio" name="cold_calling_experience" value="yes" required />
+                Yes
+              </label>
+              <label class="va-radio">
+                <input type="radio" name="cold_calling_experience" value="no" required />
+                No
+              </label>
+            </div>
+            <small class="err" data-err-for="cold_calling_experience"></small>
+          </div>
+
+          <div id="coldCallingDetails" style="display:none;">
+            <div class="va-grid">
+              <div class="va-field">
+                <label for="yearsCold">Years of cold calling experience</label>
+                <input id="yearsCold" name="cold_calling_years" type="number" min="0" step="0.5" />
+              </div>
+              <div class="va-field">
+                <label for="b2b">B2B cold calling experience? <span class="req">*</span></label>
+                <select id="b2b" name="b2b_experience">
+                  <option value="">Select one</option>
+                  <option value="yes">Yes</option>
+                  <option value="some">Some</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div class="va-field">
+                <label for="dailyCalls">Average daily call volume</label>
+                <input id="dailyCalls" name="average_daily_call_volume" type="number" min="0" step="1" />
+              </div>
+              <div class="va-field">
+                <label for="bookingRate">Typical booking rate (optional)</label>
+                <input id="bookingRate" name="typical_booking_rate" type="text" placeholder="Example: 3 appointments per 100 calls" />
+              </div>
+            </div>
+
+            <div class="va-grid">
+              <div class="va-field">
+                <label for="industries">Industries you’ve called for</label>
+                <input id="industries" name="industries_called" type="text" placeholder="Example: home services, real estate, SaaS" />
+              </div>
+              <div class="va-field">
+                <label for="salesRole">What was your role?</label>
+                <select id="salesRole" name="sales_role_type">
+                  <option value="">Select one</option>
+                  <option value="appointment_setting">Appointment setting</option>
+                  <option value="lead_qualification">Lead qualification</option>
+                  <option value="closing">Closing</option>
+                  <option value="mix">Mix of the above</option>
+                </select>
+              </div>
+              <div class="va-field">
+                <label for="dialerTools">Calling tools used (dialer/CRM)</label>
+                <input id="dialerTools" name="calling_tools_used" type="text" placeholder="Example: GHL, Aircall, Dialpad, HubSpot, etc." />
+              </div>
+            </div>
+
+            <div class="va-field">
+              <label for="objectionHandling">
+                Briefly describe how you handle objections (and which ones you’re best at)
+              </label>
+              <textarea id="objectionHandling" name="objection_handling" rows="4" placeholder="Example: Not interested, already have someone, send info, price, timing…"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 5) Go High Level -->
+        <fieldset class="va-fieldset">
+          <legend>5) Go High Level (GHL) Experience</legend>
+          <div class="va-field">
+            <label>Have you worked with Go High Level (GHL)? <span class="req">*</span></label>
+            <div class="va-radio-row">
+              <label class="va-radio">
+                <input type="radio" name="ghl_experience" value="yes" required />
+                Yes
+              </label>
+              <label class="va-radio">
+                <input type="radio" name="ghl_experience" value="no" required />
+                No
+              </label>
+            </div>
+            <small class="err" data-err-for="ghl_experience"></small>
+          </div>
+
+          <div id="ghlDetails" style="display:none;">
+            <div class="va-field">
+              <label>What have you done in GHL? (check all that apply)</label>
+              <div class="va-check-grid">
+                <label><input type="checkbox" name="ghl_tasks[]" value="crm_contacts" /> CRM / Contacts</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="pipelines" /> Pipelines</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="workflows_automation" /> Workflows / Automation</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="email_sms_campaigns" /> Email/SMS Campaigns</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="calendars" /> Calendar / Booking</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="landing_pages" /> Landing Pages</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="forms_surveys" /> Forms / Surveys</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="reporting" /> Reporting</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="integrations" /> Integrations (Zapier/API)</label>
+                <label><input type="checkbox" name="ghl_tasks[]" value="snapshots" /> Snapshots</label>
+              </div>
+            </div>
+
+            <div class="va-grid">
+              <div class="va-field">
+                <label for="ghlConfidence">GHL confidence (1–10)</label>
+                <input id="ghlConfidence" name="ghl_confidence_1_to_10" type="number" min="1" max="10" />
+              </div>
+              <div class="va-field">
+                <label for="ghlExample">Example of what you built in GHL (short)</label>
+                <input id="ghlExample" name="ghl_example" type="text" placeholder="Example: lead → SMS follow-up → booking → pipeline move" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 6) AI Tools -->
+        <fieldset class="va-fieldset">
+          <legend>6) AI Tools Proficiency</legend>
+          <div class="va-field">
+            <label>Which AI tools are you currently proficient in? (check all that apply) <span class="req">*</span></label>
+            <div class="va-check-grid">
+              <label><input type="checkbox" name="ai_tools[]" value="chatgpt" /> ChatGPT</label>
+              <label><input type="checkbox" name="ai_tools[]" value="claude" /> Claude</label>
+              <label><input type="checkbox" name="ai_tools[]" value="gemini" /> Gemini</label>
+              <label><input type="checkbox" name="ai_tools[]" value="perplexity" /> Perplexity</label>
+              <label><input type="checkbox" name="ai_tools[]" value="notion_ai" /> Notion AI</label>
+              <label><input type="checkbox" name="ai_tools[]" value="zapier_ai" /> Zapier AI</label>
+              <label><input type="checkbox" name="ai_tools[]" value="ghl_ai" /> GHL AI (if applicable)</label>
+              <label><input type="checkbox" name="ai_tools[]" value="other" /> Other (list below)</label>
+            </div>
+            <small class="hint">If you checked “Other”, list them below.</small>
+            <small class="err" data-err-for="ai_tools_required"></small>
+          </div>
+
+          <div class="va-field">
+            <label for="aiOther">Other AI tools (optional)</label>
+            <input id="aiOther" name="ai_tools_other" type="text" placeholder="Example: Fireflies, Otter, ElevenLabs, etc." />
+          </div>
+
+          <div class="va-field">
+            <label for="aiUsage">How do you use AI in your workflow? <span class="req">*</span></label>
+            <textarea id="aiUsage" name="ai_usage" rows="4" required placeholder="Example: write call scripts, summarize calls, research prospects, draft follow-up messages..."></textarea>
+            <small class="err" data-err-for="aiUsage"></small>
+          </div>
+
+          <div class="va-field">
+            <label for="aiAccuracy">How do you verify AI output to avoid mistakes or made-up info? <span class="req">*</span></label>
+            <textarea id="aiAccuracy" name="ai_verification_process" rows="4" required placeholder="Example: cross-check sources, confirm details in CRM, sanity-check numbers, ask clarifying questions..."></textarea>
+            <small class="err" data-err-for="aiAccuracy"></small>
+          </div>
+        </fieldset>
+
+        <!-- 7) Offer Understanding + Scenarios -->
+        <fieldset class="va-fieldset">
+          <legend>7) Steinbots &amp; Voice Receptionist Scenarios</legend>
+
+          <div class="va-field">
+            <label for="explainOffer">
+              In 2–4 sentences, how would you explain an AI Voice Receptionist to a non‑technical business owner?
+              <span class="req">*</span>
+            </label>
+            <textarea id="explainOffer" name="explain_ai_voice_receptionist" rows="4" required placeholder="Keep it simple, benefit-focused, no jargon."></textarea>
+            <small class="err" data-err-for="explainOffer"></small>
+          </div>
+
+          <div class="va-field">
+            <label for="coldOpen">
+              Write your opening 20–30 seconds of a cold call to a local service business (e.g., plumber, roofer, clinic).
+              <span class="req">*</span>
+            </label>
+            <textarea id="coldOpen" name="cold_call_opening_script" rows="5" required placeholder="Tip: sound natural, mention a problem you solve, ask a simple next-step question."></textarea>
+            <small class="err" data-err-for="coldOpen"></small>
+          </div>
+
+          <div class="va-field">
+            <label for="followUpSms">
+              Write a short follow‑up SMS after the prospect says: “Send me more info.”
+              <span class="req">*</span>
+            </label>
+            <textarea id="followUpSms" name="follow_up_sms" rows="3" required placeholder="Keep it short. Include a clear question or next step."></textarea>
+            <small class="err" data-err-for="followUpSms"></small>
+          </div>
+
+          <div class="va-grid">
+            <div class="va-field">
+              <label for="comfortableRecording">Are you comfortable recording a short mock call sample later if requested? <span class="req">*</span></label>
+              <select id="comfortableRecording" name="comfortable_recording_mock_call" required>
+                <option value="">Select one</option>
+                <option value="yes">Yes</option>
+                <option value="maybe">Maybe</option>
+                <option value="no">No</option>
+              </select>
+              <small class="err" data-err-for="comfortableRecording"></small>
+            </div>
+            <div class="va-field">
+              <label for="salesNotes">Anything else we should know? (optional)</label>
+              <input id="salesNotes" name="additional_notes" type="text" placeholder="Strengths, wins, what you want to learn, etc." />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Consent -->
+        <fieldset class="va-fieldset">
+          <legend>8) Confirmation</legend>
+
+          <label class="va-checkbox">
+            <input type="checkbox" name="confirm_truthful" required />
+            I confirm the information provided is accurate to the best of my knowledge.
+            <span class="req">*</span>
+          </label>
+          <small class="err" data-err-for="confirm_truthful"></small>
+
+          <label class="va-checkbox">
+            <input type="checkbox" name="consent_contact" required />
+            I consent to being contacted about this role via email/phone/WhatsApp.
+            <span class="req">*</span>
+          </label>
+          <small class="err" data-err-for="consent_contact"></small>
+        </fieldset>
+
+        <button type="submit" class="va-submit">Submit Application</button>
+        <p class="va-privacy">
+          We use your answers only for hiring evaluation. Do not include sensitive personal information you don’t want stored in a form.
+        </p>
+      </form>
+    </section>
+
+    <style>
+      .va-form-wrap { max-width: 920px; margin: 0 auto; padding: 16px; }
+      .va-form { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.4; }
+      .va-form__header h2 { margin: 0 0 8px; font-size: 1.5rem; }
+      .va-form__header p { margin:  0 0 16px; opacity: 0.85; }
+      .va-fieldset { border: 1px solid rgba(0,0,0,0.12); padding: 16px; border-radius: 10px; margin: 16px 0; }
+      .va-fieldset legend { padding: 0 8px; font-weight: 700; }
+      .va-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      @media (max-width: 720px) { .va-grid { grid-template-columns: 1fr; } }
+      .va-field label { display: block; font-weight: 600; margin-bottom: 6px; }
+      .va-field input, .va-field select, .va-field textarea { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.18); outline: none; }
+      .va-field textarea { resize: vertical; }
+      .va-radio-row { display: flex; gap: 16px; flex-wrap: wrap; }
+      .va-radio { display: inline-flex; gap: 8px; align-items: center; font-weight: 500; }
+      .va-checkbox { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0; }
+      .va-check-grid { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      @media (max-width: 720px) { .va-check-grid { grid-template-columns: 1fr; } }
+      .req { color: #b00020; font-weight: 700; margin-left: 4px; }
+      .hint { display: block; margin-top: 6px; opacity: 0.75; font-size: 0.9rem; }
+      .err { display: block; margin-top: 6px; color: #b00020; font-size: 0.92rem; min-height: 1.1em; }
+      .va-submit { width: 100%; padding: 14px 16px; border-radius: 12px; border: 0; cursor: pointer; font-weight: 800; font-size: 1rem; background: #111; color: #fff; }
+      .va-submit:hover { opacity: 0.92; }
+      .va-privacy { margin-top: 10px; font-size: 0.92rem; opacity:  0.8; }
+      .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+      input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="true"] { border-color: #b00020; }
+    </style>
+
+    <script>
+      (function () {
+        // Show a simple success banner on redirect
+        try {
+          var params = new URLSearchParams(window.location.search);
+          if (params.get('submitted') === '1') {
+            var t = document.getElementById('thanks');
+            if (t) t.style.display = 'block';
+          }
+        } catch (e) {}
+
+        const form = document.getElementById('vaApplicationForm');
+        const coldCallingDetails = document.getElementById('coldCallingDetails');
+        const ghlDetails = document.getElementById('ghlDetails');
+        const partialOverlapWrap = document.getElementById('partialOverlapWrap');
+
+        form.addEventListener('change', function (e) {
+          // Cold calling details toggle
+          if (e.target.name === 'cold_calling_experience') {
+            coldCallingDetails.style.display = (e.target.value === 'yes') ? 'block' : 'none';
+          }
+          // GHL details toggle
+          if (e.target.name === 'ghl_experience') {
+            ghlDetails.style.display = (e.target.value === 'yes') ? 'block' : 'none';
+          }
+          // Partial overlap toggle
+          if (e.target.name === 'can_work_central_hours') {
+            partialOverlapWrap.style.display = (e.target.value === 'partial_overlap') ? 'block' : 'none';
+          }
+        });
+
+        // Basic client-side validation (friendly messages)
+        form.addEventListener('submit', function (e) {
+          // Honeypot spam check
+          const hp = form.querySelector('input[name="website"]');
+          if (hp && hp.value.trim() !== '') {
+            e.preventDefault();
+            return;
+          }
+
+          // Reset errors
+          form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+          form.querySelectorAll('.err').forEach(el => el.textContent = '');
+
+          let ok = true;
+
+          function setError(fieldIdOrName, message, byName = false) {
+            ok = false;
+            let errEl = null;
+            if (byName) {
+              errEl = form.querySelector(`[data-err-for="${fieldIdOrName}"]`);
+            } else {
+              errEl = form.querySelector(`[data-err-for="${fieldIdOrName}"]`);
+              const field = document.getElementById(fieldIdOrName);
+              if (field) field.setAttribute('aria-invalid', 'true');
+            }
+            if (errEl) errEl.textContent = message;
+          }
+
+          // Required inputs/selects/textareas
+          const required = form.querySelectorAll('input[required], select[required], textarea[required]');
+          required.forEach(el => {
+            if (el.type === 'radio') return; // handle radios separately
+            if (el.type === 'checkbox') return; // handle checkboxes separately
+            if (!el.value || !el.value.trim()) {
+              setError(el.id, 'This field is required.');
+            }
+          });
+
+          // Required radio groups
+          const requiredRadioNames = ['can_work_central_hours', 'cold_calling_experience', 'ghl_experience'];
+          requiredRadioNames.forEach(name => {
+            const checked = form.querySelector(`input[name="${name}"]:checked`);
+            if (!checked) setError(name, 'Please select one option.', true);
+          });
+
+          // Required consent checkboxes
+          const confirmTruthful = form.querySelector('input[name="confirm_truthful"]');
+          const consentContact = form.querySelector('input[name="consent_contact"]');
+          if (confirmTruthful && !confirmTruthful.checked) setError('confirm_truthful', 'Please confirm.', true);
+          if (consentContact && !consentContact.checked) setError('consent_contact', 'Please confirm.', true);
+
+          // Require at least one AI tool checkbox
+          const aiChecked = form.querySelectorAll('input[name="ai_tools[]"]:checked');
+          if (!aiChecked || aiChecked.length === 0) {
+            setError('ai_tools_required', 'Please select at least one AI tool.', true);
+          }
+
+          if (!ok) {
+            e.preventDefault();
+            const firstInvalid = form.querySelector('[aria-invalid="true"]') || form.querySelector('.err:not(:empty)');
+            if (firstInvalid && firstInvalid.scrollIntoView) {
+              firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
