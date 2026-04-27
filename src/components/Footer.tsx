@@ -93,8 +93,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+12041234567" className="transition hover:text-[#0b79d0]">
-                  (204) 123-4567
+                <a href="tel:+12049052234" className="transition hover:text-[#0b79d0]">
+                  (204) 905-2234
                 </a>
               </li>
               <li>Steinbach, MB</li>

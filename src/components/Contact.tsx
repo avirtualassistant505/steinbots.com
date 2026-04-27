@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const contactItems = [
   { icon: Mail, label: 'Email Us', value: 'hello@steinbots.com', href: 'mailto:hello@steinbots.com' },
-  { icon: Phone, label: 'Call Us', value: '(204) 123-4567', href: 'tel:+12041234567' },
+  { icon: Phone, label: 'Call Us', value: '(204) 905-2234', href: 'tel:+12049052234' },
   { icon: MapPin, label: 'Visit Us', value: 'Steinbach, MB, Canada' },
 ];
 
@@ -95,7 +95,7 @@ export default function Contact() {
                 <input
                   type="tel"
                   className="mt-2 h-12 w-full border border-slate-300 bg-white px-4 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
-                  placeholder="(204) 123-4567"
+                  placeholder="(204) 905-2234"
                 />
               </label>
               <label className="block">
