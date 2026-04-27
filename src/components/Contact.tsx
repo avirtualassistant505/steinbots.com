@@ -1,150 +1,130 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
+
+const contactItems = [
+  { icon: Mail, label: 'Email Us', value: 'hello@steinbots.com', href: 'mailto:hello@steinbots.com' },
+  { icon: Phone, label: 'Call Us', value: '(204) 123-4567', href: 'tel:+12041234567' },
+  { icon: MapPin, label: 'Visit Us', value: 'Steinbach, MB, Canada' },
+];
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Ready to Transform Your Business?
+    <section id="contact" className="bg-[#f7f9fc] py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#0b79d0]">Start the conversation</p>
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-[#07111f] sm:text-5xl">
+            Ready to pick your first workflow?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get started today with a free consultation. Let's discuss how AI automation can help you grow.
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Tell us whether your Steinbach AI project should focus on leads, bookings, bookkeeping, admin work,
+            reporting, or custom software.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div>
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 h-full border-2 border-blue-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+        <div className="mt-14 grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
+          <aside className="border border-slate-200 bg-white p-7 sm:p-8">
+            <h3 className="text-2xl font-bold text-[#07111f]">Get in touch</h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Tell us what you want the website, AI agent, bookkeeping workflow, or custom automation to handle.
+              We can start local in Steinbach and expand the system as your process gets clearer.
+            </p>
 
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-white" />
+            <div className="mt-8 grid gap-4">
+              {contactItems.map((item) => {
+                const Icon = item.icon;
+                const content = (
+                  <div className="flex items-start gap-4 border border-slate-200 bg-[#f7f9fc] p-4 transition hover:border-cyan-300 hover:bg-cyan-50">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#07111f] text-cyan-300">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-bold text-[#07111f]">{item.label}</span>
+                      <span className="mt-1 block text-sm leading-6 text-slate-600">{item.value}</span>
+                    </span>
                   </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Email Us</div>
-                    <a href="mailto:hello@steinbots.com" className="text-blue-600 hover:text-blue-700">
-                      hello@steinbots.com
-                    </a>
-                  </div>
+                );
+                return item.href ? (
+                  <a key={item.label} href={item.href}>
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.label}>{content}</div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 border border-slate-200 p-5">
+              <h4 className="font-bold text-[#07111f]">Business hours</h4>
+              <div className="mt-4 space-y-3 text-sm">
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-600">Monday - Friday</span>
+                  <span className="font-semibold text-[#07111f]">9:00 AM - 5:00 PM</span>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Call Us</div>
-                    <a href="tel:+12041234567" className="text-blue-600 hover:text-blue-700">
-                      (204) 123-4567
-                    </a>
-                  </div>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-600">Saturday</span>
+                  <span className="font-semibold text-[#07111f]">By appointment</span>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Visit Us</div>
-                    <p className="text-gray-600">
-                      Steinbach, MB<br />
-                      Canada
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-md">
-                <h4 className="font-bold text-gray-900 mb-3">Business Hours</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Monday - Friday</span>
-                    <span className="font-medium text-gray-900">9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Saturday</span>
-                    <span className="font-medium text-gray-900">By Appointment</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Sunday</span>
-                    <span className="font-medium text-gray-900">Closed</span>
-                  </div>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-600">Sunday</span>
+                  <span className="font-semibold text-[#07111f]">Closed</span>
                 </div>
               </div>
             </div>
-          </div>
+          </aside>
 
-          <div>
-            <form className="bg-white rounded-3xl border-2 border-gray-100 shadow-xl p-8">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition"
-                    placeholder="John Doe"
-                  />
-                </div>
+          <form className="border border-slate-200 bg-white p-7 shadow-[0_24px_70px_rgba(7,17,31,0.08)] sm:p-8">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="block">
+                <span className="text-sm font-bold text-[#07111f]">Your Name</span>
+                <input
+                  type="text"
+                  className="mt-2 h-12 w-full border border-slate-300 bg-white px-4 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
+                  placeholder="John Doe"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold text-[#07111f]">Email Address</span>
+                <input
+                  type="email"
+                  className="mt-2 h-12 w-full border border-slate-300 bg-white px-4 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
+                  placeholder="john@example.com"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold text-[#07111f]">Phone Number</span>
+                <input
+                  type="tel"
+                  className="mt-2 h-12 w-full border border-slate-300 bg-white px-4 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
+                  placeholder="(204) 123-4567"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold text-[#07111f]">Business Name</span>
+                <input
+                  type="text"
+                  className="mt-2 h-12 w-full border border-slate-300 bg-white px-4 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
+                  placeholder="Your Business"
+                />
+              </label>
+            </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition"
-                    placeholder="john@example.com"
-                  />
-                </div>
+            <label className="mt-5 block">
+              <span className="text-sm font-bold text-[#07111f]">Message</span>
+              <textarea
+                rows={5}
+                className="mt-2 w-full resize-none border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
+                placeholder="Tell us what you want automated: leads, bookings, bookkeeping, admin work, reporting, custom software, or a website revamp..."
+              />
+            </label>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition"
-                    placeholder="(204) 123-4567"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition"
-                    placeholder="Your Business"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition resize-none"
-                    placeholder="Tell us about your business and what you're looking for..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-cyan-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center space-x-2"
-                >
-                  <span>Send Message</span>
-                  <Send className="w-5 h-5" />
-                </button>
-              </div>
-            </form>
-          </div>
+            <button
+              type="submit"
+              className="mt-6 inline-flex h-[52px] w-full items-center justify-center gap-2 bg-[#07111f] px-6 font-bold text-white transition hover:bg-[#0b79d0]"
+            >
+              <span>Send Message</span>
+              <Send className="h-5 w-5" />
+            </button>
+          </form>
         </div>
       </div>
     </section>

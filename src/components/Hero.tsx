@@ -1,85 +1,101 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MousePointer2, PhoneCall, Sparkles } from 'lucide-react';
+
+const stats = [
+  { value: '24/7', label: 'Always available' },
+  { value: '10x', label: 'Faster lead response' },
+  { value: 'Human', label: 'Approval where needed' },
+];
 
 export default function Hero() {
   return (
-    <div className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-cyan-50"></div>
+    <section className="relative min-h-[92vh] overflow-hidden bg-[#07111f] pt-20 text-white">
+      <img
+        src="/brand/chatbot-hero.png"
+        alt="AI chatbot assistant interface"
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        loading="eager"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.96)_0%,rgba(7,17,31,0.86)_42%,rgba(7,17,31,0.46)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#f7f9fc] to-transparent" />
 
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-      <div className="absolute top-40 right-10 w-72 h-72 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Serving Steinbach, MB & Beyond</span>
+      <div className="relative mx-auto grid min-h-[calc(92vh-5rem)] max-w-7xl content-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.06fr_0.94fr] lg:px-8">
+        <div className="max-w-3xl">
+          <div className="mb-6 inline-flex items-center gap-2 border border-white/18 bg-white/8 px-4 py-2 text-sm font-semibold text-cyan-100">
+            <Sparkles className="h-4 w-4" />
+            Steinbach AI systems for local businesses
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Steinbach AI Agents
-            <br />
-            for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-              Chatbots & Automation
-            </span>
+          <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
+            Steinbots
           </h1>
 
-          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-            We build Steinbach AI Agents that automate customer conversations, capture leads, and schedule
-            appointments 24/7 across your website, SMS, and social channels.
+          <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-200">
+            We are a Steinbach AI agency building AI agents, bookkeeping workflows, custom automation,
+            sharper websites, and internal software for businesses that need faster response times without
+            more admin load.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               href="#pricing"
-              className="group bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="inline-flex h-14 items-center justify-center gap-2 bg-cyan-400 px-6 text-base font-bold text-[#07111f] transition hover:bg-cyan-300"
             >
-              <div className="flex flex-col items-start leading-tight">
-                <span className="text-lg font-semibold">AI Salesforce With Website Package</span>
-                <span className="text-sm font-medium opacity-90">Start at $199.99*/month</span>
-              </div>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
+              View AI Packages
+              <ArrowRight className="h-5 w-5" />
             </a>
             <a
-              href="#assistant"
-              className="group bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              href="#bookkeeping"
+              className="inline-flex h-14 items-center justify-center border border-white/25 bg-white/8 px-6 text-base font-bold text-white transition hover:bg-white/14"
             >
-              <span className="text-lg font-semibold">Moltbot Executive Assistant</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
+              Bookkeeping Automation
+            </a>
+            <a
+              href="#website-revamp"
+              className="inline-flex h-14 items-center justify-center border border-white/25 bg-white/8 px-6 text-base font-bold text-white transition hover:bg-white/14"
+            >
+              $500 Website Revamp
             </a>
           </div>
 
-          <div className="relative max-w-5xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur-xl opacity-20"></div>
-            <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-              <div className="aspect-video bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl overflow-hidden">
-                <img
-                  src="/brand/chatbot-hero.png"
-                  alt="AI chatbot assistant on a mobile interface"
-                  className="h-full w-full object-cover object-center"
-                  loading="eager"
-                  decoding="async"
-                />
+          <div className="mt-12 grid max-w-2xl grid-cols-3 border-y border-white/14">
+            {stats.map((stat) => (
+              <div key={stat.label} className="py-5 pr-4">
+                <div className="text-3xl font-bold text-white">{stat.value}</div>
+                <div className="mt-1 text-sm text-slate-300">{stat.label}</div>
               </div>
-              <div className="grid grid-cols-3 gap-8 mt-8 pt-8 border-t border-gray-100">
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden self-end lg:block">
+          <div className="border border-white/10 bg-[#07111f]/75 p-5 backdrop-blur">
+            <div className="grid gap-3">
+              <div className="flex items-center justify-between border border-white/10 bg-white/10 p-4">
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">24/7</div>
-                  <div className="text-sm text-gray-600">Always Available</div>
+                  <div className="text-sm font-semibold text-slate-300">Lead captured</div>
+                  <div className="mt-1 text-2xl font-bold">Quote request</div>
                 </div>
+                <MousePointer2 className="h-8 w-8 text-cyan-300" />
+              </div>
+              <div className="flex items-center justify-between border border-white/10 bg-white/10 p-4">
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">10x</div>
-                  <div className="text-sm text-gray-600">Faster Response</div>
+                  <div className="text-sm font-semibold text-slate-300">Back office</div>
+                  <div className="mt-1 text-2xl font-bold">Books reviewed</div>
                 </div>
+                <CheckCircle2 className="h-8 w-8 text-emerald-300" />
+              </div>
+              <div className="flex items-center justify-between border border-white/10 bg-white/10 p-4">
                 <div>
-                  <div className="text-3xl font-bold text-gray-900">100%</div>
-                  <div className="text-sm text-gray-600">Customer Satisfaction</div>
+                  <div className="text-sm font-semibold text-slate-300">Human handoff</div>
+                  <div className="mt-1 text-2xl font-bold">Call booked</div>
                 </div>
+                <PhoneCall className="h-8 w-8 text-[#f4c96b]" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

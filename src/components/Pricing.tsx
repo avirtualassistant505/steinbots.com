@@ -1,88 +1,125 @@
 import { Check, Star } from 'lucide-react';
 
-const includedFeatures = [
-  'AI Chatbot for Website, SMS & Social Media',
-  'Automated Appointment Scheduling',
-  'Professional Custom Website',
-  'Unlimited Conversations',
-  'Multi-Channel Integration',
-  '24/7 Customer Support',
-  'Lead Capture & Management',
-  'Real-Time Analytics Dashboard',
-  'Mobile-Responsive Design',
-  'Email Notifications',
-  'Calendar Sync (Google, Outlook)',
-  'Customizable Chat Widget',
+const packages = [
+  {
+    name: 'AI Front Desk + Website',
+    eyebrow: 'Core package',
+    price: '$249+',
+    unit: '/month',
+    description: 'For businesses that need faster lead response, booking, website chat, and a cleaner conversion path.',
+    features: [
+      'AI chatbot for website, SMS, and social channels',
+      'Lead capture and qualification',
+      'Automated appointment scheduling',
+      'Professional website or landing page support',
+      'Email notifications and calendar handoff',
+      'Basic analytics and monthly tuning',
+    ],
+    cta: 'View AI Package',
+    featured: true,
+  },
+  {
+    name: 'Bookkeeping Workflow Setup',
+    eyebrow: 'Back-office system',
+    price: '$750+',
+    unit: 'project',
+    description: 'For owners who need receipts, invoices, QuickBooks review, and monthly close prep under control.',
+    features: [
+      'Bookkeeping workflow map',
+      'Receipt and document intake',
+      'QuickBooks review queues',
+      'Invoice and payment follow-up',
+      'Monthly close checklist',
+      'Monitoring available from $149/month',
+    ],
+    cta: 'Plan Bookkeeping Workflow',
+    featured: false,
+  },
+  {
+    name: 'Custom Automation Build',
+    eyebrow: 'Software and workflows',
+    price: '$1,500+',
+    unit: 'project',
+    description: 'For custom software, dashboards, portals, automations, and integrations around your exact process.',
+    features: [
+      'Workflow discovery and system design',
+      'Gmail, Sheets, CRM, Stripe, Shopify, or QuickBooks integrations',
+      'Custom dashboards, portals, and forms',
+      'Approval steps for sensitive actions',
+      'Launch support and documentation',
+      'Ongoing care plans available',
+    ],
+    cta: 'Scope Automation Build',
+    featured: false,
+  },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Simple, Transparent Pricing
+    <section id="pricing" className="bg-[#f7f9fc] py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#0b79d0]">Starting points</p>
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-[#07111f] sm:text-5xl">
+            Packages for leads, books, and custom workflows.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to automate and grow your business, starting at just $199.99*/month
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Start with one high-value workflow, prove the value, then expand into the next system when it makes sense.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl blur opacity-25"></div>
-            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-8 py-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">AI Salesforce With Website Package</h3>
-                    <p className="text-blue-100">Everything you need to get started</p>
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {packages.map((pkg) => (
+            <article key={pkg.name} className="border border-slate-200 bg-white">
+              <div className={pkg.featured ? 'bg-[#07111f] p-8 text-white' : 'bg-white p-8 text-[#07111f]'}>
+                <div className={pkg.featured ? 'text-sm font-bold uppercase tracking-[0.24em] text-cyan-300' : 'text-sm font-bold uppercase tracking-[0.24em] text-[#0b79d0]'}>
+                  {pkg.eyebrow}
+                </div>
+                {pkg.featured && (
+                  <div className="mt-5 flex gap-1 text-[#f4c96b]">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="h-5 w-5 fill-current" />
+                    ))}
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Star className="w-5 h-5 text-yellow-300 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-300 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-300 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-300 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-300 fill-current" />
-                  </div>
+                )}
+                <h3 className="mt-5 text-3xl font-bold leading-tight">{pkg.name}</h3>
+                <p className={pkg.featured ? 'mt-4 leading-7 text-slate-300' : 'mt-4 leading-7 text-slate-600'}>
+                  {pkg.description}
+                </p>
+                <div className="mt-10">
+                  <span className="text-5xl font-bold">{pkg.price}</span>
+                  <span className={pkg.featured ? 'ml-2 text-lg text-slate-300' : 'ml-2 text-lg text-slate-500'}>
+                    {pkg.unit}
+                  </span>
                 </div>
-              </div>
-
-              <div className="p-8 sm:p-12">
-                <div className="flex items-baseline mb-8">
-                  <span className="text-5xl font-bold text-gray-900">$199.99*</span>
-                  <span className="text-2xl text-gray-600 ml-2">/month</span>
-                </div>
-
-                <div className="space-y-4 mb-10">
-                  {includedFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
-                        <Check className="w-4 h-4 text-blue-600" />
-                      </div>
-                      <span className="ml-3 text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <a
                   href="#contact"
-                  className="block w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-cyan-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className={pkg.featured
+                    ? 'mt-9 inline-flex h-[52px] w-full items-center justify-center bg-cyan-400 px-6 font-bold text-[#07111f] transition hover:bg-cyan-300'
+                    : 'mt-9 inline-flex h-[52px] w-full items-center justify-center bg-[#07111f] px-6 font-bold text-white transition hover:bg-[#0b79d0]'}
                 >
-                  Get Started Today
+                  {pkg.cta}
                 </a>
-
-                <p className="text-center text-sm text-gray-500 mt-6">
-                  No setup fees • Cancel anytime • Free onboarding
-                </p>
-                <p className="text-center text-xs text-gray-500 mt-3">
-                  * You also pay AI usage fees (based on chat + call volume). For most small businesses, this is
-                  $25–$50/month.
-                </p>
               </div>
-            </div>
-          </div>
+
+              <div className="grid gap-px bg-slate-200">
+                {pkg.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3 bg-white p-5">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-cyan-100 text-[#0b79d0]">
+                      <Check className="h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-semibold leading-6 text-slate-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
+
+        <p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-6 text-slate-500">
+          Software subscriptions, AI usage, SMS, phone numbers, QuickBooks, CRMs, payment processors, and other
+          third-party platform fees are billed separately when required.
+        </p>
       </div>
     </section>
   );

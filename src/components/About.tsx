@@ -1,65 +1,79 @@
-import { MapPin, Zap, Heart } from 'lucide-react';
+import { Heart, MapPin, Zap } from 'lucide-react';
+
+const areas = ['Steinbach', 'Niverville', 'Southern Manitoba'];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6">
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm font-medium">Proudly Serving Steinbach, MB</span>
+            <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#0b79d0]">Steinbach, Manitoba</p>
+            <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight text-[#07111f] sm:text-5xl">
+              Your local Steinbach AI automation partner.
+            </h2>
+            <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
+              <p>
+                Steinbots is a locally-owned Steinbach AI agency building practical systems for businesses in
+                Steinbach and surrounding communities. We understand local service businesses, lean teams, and
+                owners who need results without a giant tech project.
+              </p>
+              <p>
+                The goal is not flashy AI for its own sake. It is fewer missed leads, cleaner bookkeeping handoffs,
+                faster replies, useful dashboards, and custom software your team can actually use.
+              </p>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Your Local AI Automation Partner
-            </h2>
-
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Steinbots is a locally-owned AI agency building Steinbach AI Agents for businesses in Steinbach
-              and surrounding communities. We understand the unique needs of Manitoba businesses and provide
-              personalized solutions that drive real results.
-            </p>
-
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              From small local shops to growing enterprises, we're committed to making cutting-edge AI
-              technology accessible and affordable. Our mission is to help you work smarter, not harder,
-              by automating repetitive tasks and improving customer experiences.
-            </p>
-
-            <div className="grid grid-cols-1 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <Zap className="w-8 h-8 text-blue-600 mb-3" />
-                <div className="text-2xl font-bold text-gray-900 mb-1">10,000+</div>
-                <div className="text-sm text-gray-600">Automated Conversations</div>
+            <div className="mt-10 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-2">
+              <div className="bg-[#07111f] p-6 text-white">
+                <Zap className="mb-5 h-8 w-8 text-cyan-300" />
+                <div className="text-4xl font-bold">10,000+</div>
+                <div className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-slate-300">
+                  Automated conversations
+                </div>
+              </div>
+              <div className="bg-[#f7f9fc] p-6">
+                <Heart className="mb-5 h-8 w-8 text-[#0b79d0]" />
+                <div className="text-2xl font-bold text-[#07111f]">Local setup, real support</div>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  Practical automations, tuned to the way your team actually works.
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
-
-              <div className="relative z-10 text-center p-8">
-                <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-                  <Heart className="w-12 h-12 text-blue-600" />
+          <div className="border border-slate-200 bg-[#f7f9fc] p-7 sm:p-9">
+            <div className="border border-slate-200 bg-white p-6">
+              <div className="flex items-center gap-4">
+                <span className="flex h-14 w-14 items-center justify-center bg-cyan-100 text-[#0b79d0]">
+                  <MapPin className="h-7 w-7" />
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-[#07111f]">Built for Manitoba</h3>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    Practical, direct, dependable
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-4">Built for Manitoba</h3>
-                <p className="text-blue-50 text-lg">
-                  We understand your market, your customers, and your challenges. Let's grow together.
-                </p>
               </div>
-
-              <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
-              <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-xl"></div>
+              <p className="mt-7 text-lg leading-8 text-slate-600">
+                We start with one painful workflow, build the first useful version, keep approval points
+                where they belong, and expand once the system is earning its keep.
+              </p>
             </div>
 
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="font-semibold text-gray-900">Active Now</span>
+            <div className="mt-6 border border-slate-200 bg-[#07111f] p-6 text-white">
+              <div className="flex items-center gap-3">
+                <span className="h-3 w-3 animate-pulse bg-cyan-300" />
+                <span className="font-bold">Active locally</span>
               </div>
-              <p className="text-sm text-gray-600">Serving businesses across Steinbach, Niverville, and Southern MB</p>
+              <div className="mt-5 grid gap-3">
+                {areas.map((area) => (
+                  <div key={area} className="flex items-center justify-between border border-white/10 bg-white/5 px-4 py-3">
+                    <span>{area}</span>
+                    <span className="text-cyan-300">AI support</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

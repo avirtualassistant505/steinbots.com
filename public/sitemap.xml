@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://steinbots.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/steinbach-ai</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/ai-automation-steinbach</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/ai-chatbots-steinbach</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/bookkeeping-automation-steinbach</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/website-revamp-steinbach</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/custom-automation-manitoba</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://steinbots.com/service-areas/niverville-ai-automation</loc>
+    <priority>0.75</priority>
+  </url>
+</urlset>

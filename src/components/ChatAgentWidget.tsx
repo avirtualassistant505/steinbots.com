@@ -18,66 +18,103 @@ function buildReply(raw: string): string {
 
   if (!text) return "What's on your mind?";
 
+  if (/(steinbach ai|local ai|ai in steinbach|steinbach automation|manitoba ai)/.test(text)) {
+    return [
+      'Steinbach AI is where Steinbots focuses: practical AI systems for local businesses that need faster replies, cleaner admin, and better follow-up.',
+      'We build AI agents, booking flows, bookkeeping workflows, dashboards, website revamps, and custom automation for Steinbach, Niverville, Southern Manitoba, and remote clients.',
+      'What kind of business do you want AI to help with?',
+    ].join(' ');
+  }
+
+  if (/(niverville|hanover|blumenort|mitchell|kleefeld|grunthal|la broquerie|southern manitoba|winnipeg)/.test(text)) {
+    return [
+      'Steinbots is focused on Steinbach and nearby Southern Manitoba communities, including Niverville, Hanover, Blumenort, Mitchell, Kleefeld, Grunthal, La Broquerie, and Winnipeg-area businesses when the workflow fits.',
+      'Good local AI starting points are lead capture, booking automation, website chat, bookkeeping intake, and custom admin workflows.',
+      'Which town and business type should the system support?',
+    ].join(' ');
+  }
+
+  if (/(receptionist|missed call|phone agent|front desk|answer calls)/.test(text)) {
+    return [
+      'An AI receptionist or front-desk system is useful when calls, website messages, or social inquiries are getting missed.',
+      'We can help capture the lead, ask qualifying questions, route urgent messages, book appointments, and hand off to a person when needed.',
+      'Do most inquiries come from phone, website, Facebook, Instagram, or referrals?',
+    ].join(' ');
+  }
+
+  if (/(bookkeep|quickbooks|receipt|invoice|accounting|bank feed|expense)/.test(text)) {
+    return [
+      'Bookkeeping automation works best when it supports a human review process.',
+      'We can help with receipt intake, invoice follow-up, QuickBooks review queues, monthly close checklists, and exception reports.',
+      'Steinbots builds the workflow and review system; tax, CPA, audit, or legal advice should stay with the appropriate qualified professional.',
+      'What is messiest right now: receipts, categorizing transactions, invoices, or month-end review?',
+    ].join(' ');
+  }
+
+  if (/(software|workflow|automation|dashboard|internal tool|portal|custom)/.test(text)) {
+    return [
+      'Custom automation is a good fit when your team keeps copying data between tools or repeating the same admin steps.',
+      'We can build dashboards, forms, portals, and integrations with Gmail, Sheets, CRMs, Stripe, Shopify, QuickBooks, and calendars.',
+      'Which tool or process do you want connected first?',
+    ].join(' ');
+  }
+
+  if (/(website|revamp|redesign|wordpress|shopify|webflow|wix|squarespace)/.test(text)) {
+    return [
+      'The $500 website revamp is for businesses that already have a site but want it cleaned up, rewritten, redesigned, coded, and launched.',
+      'We can work with WordPress, Shopify, Webflow, Wix, Squarespace, GoHighLevel, and most custom-coded sites.',
+      'If you share your current website, we can tell you what we would improve first.',
+    ].join(' ');
+  }
+
   if (/(price|pricing|cost|rates|package)/.test(text)) {
     return [
-      'Most teams start at $199.99/month (depends on channels + integrations).',
-      'If you tell me your business type and where customers message you (website/SMS/Facebook/Instagram), I can recommend the right setup.',
-      'You can also scroll to Pricing on this page for a quick breakdown.',
+      'AI front desk packages start around $249/month. Bookkeeping workflow setup starts around $750, and custom automation builds usually start around $1,500.',
+      'The website revamp is a separate one-time $500 service.',
+      'Tell me what you want fixed first: leads, booking, bookkeeping, support, or your website.',
     ].join(' ');
   }
 
   if (/(book|call|consult|meeting|demo)/.test(text)) {
     return [
-      "Absolutely. If you share your business name + best contact method, I'll point you to the contact form so we can book a quick consultation.",
-      'In the meantime, what do you want the chatbot to handle first: leads, booking, FAQs, or support?'
+      'Absolutely. Share your business name and best contact method in the form, and we can book a quick consultation.',
+      'The useful first question is: should your system capture leads, book appointments, clean up bookkeeping admin, or automate a custom workflow?',
     ].join(' ');
   }
 
   if (/(what can you do|capabilit|features|help|use case)/.test(text)) {
     return [
-      "I can act like a 24/7 front-desk: answer FAQs, qualify leads, collect contact details, and hand off to a human when needed.",
-      'I can also route conversations into your tools (calendar, CRM, email/SMS, forms).',
-      'What kind of business is this for?'
+      'A Steinbots system can act like a 24/7 front desk, bookkeeping helper, follow-up assistant, or workflow router.',
+      'It can also route conversations, documents, invoices, reminders, and approvals into your tools.',
+      'What kind of business is this for?',
     ].join(' ');
   }
 
-  if (/(website|sms|text|facebook|instagram|messenger)/.test(text)) {
+  if (/(sms|text|facebook|instagram|messenger)/.test(text)) {
     return [
-      'Great — multi-channel is where chatbots shine.',
-      'We usually start with one “core” knowledge base + one conversion goal (book a call, request a quote, schedule, or capture leads), then expand to other channels.',
-      'Which channel matters most for you right now?'
+      'Multi-channel is where AI agents become useful.',
+      'We usually start with one core knowledge base and one conversion goal, then expand to website chat, SMS, Facebook, or Instagram.',
+      'Which channel matters most right now?',
     ].join(' ');
   }
 
   if (/(appointment|schedule|calendar)/.test(text)) {
     return [
-      'Scheduling is a perfect chatbot job.',
-      'We can collect a few details, show availability, and confirm the booking — then send reminders so fewer people no-show.',
-      'What do you book: consultations, services, or onsite visits?'
-    ].join(' ');
-  }
-
-  if (/(support|refund|return|order|shipping)/.test(text)) {
-    return [
-      'Support automation can reduce repetitive tickets fast.',
-      'A good bot answers common questions instantly, pulls order details when integrated, and escalates edge cases to a human.',
-      'What are the top 3 questions you get every week?'
+      'Scheduling is a perfect AI agent job.',
+      'We can collect the right details, show availability, confirm the booking, and send reminders so fewer people no-show.',
+      'What do you book: consultations, services, or onsite visits?',
     ].join(' ');
   }
 
   return [
-    "Got it. If you tell me your business type and what you want the chatbot to achieve (more leads, fewer calls, faster support, bookings),",
-    "I'll suggest a simple first version you can launch quickly."
+    'Tell me your business type and what you want the system to achieve: more leads, cleaner books, fewer missed calls, faster support, bookings, or a better website.',
+    'I can suggest a simple first version you can launch quickly.',
   ].join(' ');
 }
 
 export default function ChatAgentWidget() {
   const suggestions = useMemo(
-    () => [
-      'What can a chatbot do for my business?',
-      'How much does it cost?',
-      'Can you help me book more appointments?',
-    ],
+    () => ['What is Steinbach AI?', 'Do you serve Niverville?', 'Can you automate bookkeeping?'],
     []
   );
 
@@ -89,7 +126,7 @@ export default function ChatAgentWidget() {
       id: uid(),
       role: 'assistant',
       content:
-        "Hi! I'm the Steinbots demo agent. Ask me about chatbots, pricing, or how we'd automate your leads and bookings.",
+        "Hi, I'm the Steinbots demo agent. Ask me about Steinbach AI, AI agents, bookkeeping workflows, pricing, bookings, custom software, or the $500 website revamp.",
     },
   ]);
 
@@ -98,21 +135,20 @@ export default function ChatAgentWidget() {
 
   useEffect(() => {
     if (!open) return;
-    const t = window.setTimeout(() => inputRef.current?.focus(), 50);
-    return () => window.clearTimeout(t);
+    const timer = window.setTimeout(() => inputRef.current?.focus(), 50);
+    return () => window.clearTimeout(timer);
   }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const el = listRef.current;
-    if (!el) return;
-    el.scrollTop = el.scrollHeight;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [open, messages, isTyping]);
 
   useEffect(() => {
     if (!open) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
@@ -135,8 +171,7 @@ export default function ChatAgentWidget() {
     setIsTyping(true);
 
     window.setTimeout(() => {
-      const reply = buildReply(value);
-      pushAssistantMessage(reply);
+      pushAssistantMessage(buildReply(value));
       setIsTyping(false);
     }, 650);
   }
@@ -147,98 +182,84 @@ export default function ChatAgentWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="group flex items-center gap-3 rounded-2xl bg-gray-900 px-4 py-3 text-white shadow-xl hover:shadow-2xl transition"
+          className="group flex items-center gap-3 border border-cyan-300 bg-[#07111f] p-3 text-white shadow-[0_18px_50px_rgba(7,17,31,0.24)] transition hover:bg-[#0b79d0] sm:px-4"
           aria-label="Open chat"
         >
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
+          <span className="grid h-10 w-10 place-items-center bg-cyan-300 text-[#07111f]">
             <MessageCircle className="h-5 w-5" />
           </span>
-          <span className="text-left leading-tight">
-            <div className="text-sm font-semibold">Chat with an agent</div>
-            <div className="text-xs text-white/70">See a chatbot demo</div>
+          <span className="hidden text-left leading-tight sm:block">
+            <span className="block text-sm font-bold">Chat with an agent</span>
+            <span className="block text-xs text-cyan-100">See a chatbot demo</span>
           </span>
         </button>
       ) : (
-        <div className="w-[92vw] max-w-[430px] overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-2xl">
-          <div className="flex items-center justify-between gap-3 border-b border-gray-100 px-4 py-3">
-            <div className="flex items-center gap-3 min-w-0">
-              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white shadow">
+        <div className="w-[92vw] max-w-[430px] overflow-hidden border border-slate-200 bg-white shadow-[0_24px_80px_rgba(7,17,31,0.2)]">
+          <div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-[#07111f] px-4 py-3 text-white">
+            <div className="flex min-w-0 items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center bg-cyan-300 text-[#07111f]">
                 <Sparkles className="h-5 w-5" />
               </span>
               <div className="min-w-0">
-                <div className="truncate text-sm font-semibold text-gray-900">Steinbots Agent</div>
-                <div className="truncate text-xs text-gray-500">Demo chatbot • Replies instantly</div>
+                <div className="truncate text-sm font-bold">Steinbots Agent</div>
+                <div className="truncate text-xs text-cyan-100">Demo chatbot - replies instantly</div>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="grid h-10 w-10 place-items-center rounded-xl hover:bg-gray-50 transition"
+              className="grid h-10 w-10 place-items-center text-slate-300 transition hover:bg-white/10 hover:text-white"
               aria-label="Close chat"
             >
-              <X className="h-5 w-5 text-gray-600" />
+              <X className="h-5 w-5" />
             </button>
           </div>
 
           <div ref={listRef} className="max-h-[60vh] overflow-y-auto px-4 py-4">
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={
-                  m.role === 'user'
-                    ? 'flex justify-end mb-3'
-                    : 'flex justify-start mb-3'
-                }
-              >
+            {messages.map((message) => (
+              <div key={message.id} className={message.role === 'user' ? 'mb-3 flex justify-end' : 'mb-3 flex justify-start'}>
                 <div
                   className={
-                    m.role === 'user'
-                      ? 'max-w-[85%] rounded-2xl rounded-br-md bg-blue-600 px-4 py-3 text-sm text-white shadow'
-                      : 'max-w-[85%] rounded-2xl rounded-bl-md bg-gray-50 px-4 py-3 text-sm text-gray-900 border border-gray-100'
+                    message.role === 'user'
+                      ? 'max-w-[85%] bg-[#0b79d0] px-4 py-3 text-sm leading-6 text-white shadow'
+                      : 'max-w-[85%] border border-slate-200 bg-[#f7f9fc] px-4 py-3 text-sm leading-6 text-slate-800'
                   }
                 >
-                  {m.content}
+                  {message.content}
                 </div>
               </div>
             ))}
 
-            {isTyping ? (
-              <div className="flex justify-start mb-3">
-                <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-gray-50 px-4 py-3 text-sm text-gray-700 border border-gray-100">
-                  <span className="inline-flex items-center gap-2">
-                    <span className="inline-flex gap-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.2s]" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.1s]" />
-                      <span className="h-1.5 w-1.5 rounded-full bg-gray-400 animate-bounce" />
-                    </span>
-                    Thinking…
-                  </span>
+            {isTyping && (
+              <div className="mb-3 flex justify-start">
+                <div className="max-w-[85%] border border-slate-200 bg-[#f7f9fc] px-4 py-3 text-sm text-slate-700">
+                  Thinking...
                 </div>
               </div>
-            ) : null}
+            )}
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {suggestions.map((s) => (
+              {suggestions.map((suggestion) => (
                 <button
-                  key={s}
+                  key={suggestion}
                   type="button"
-                  onClick={() => handleSend(s)}
-                  className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 transition"
+                  onClick={() => handleSend(suggestion)}
+                  className="border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-cyan-300 hover:bg-cyan-50"
                 >
-                  {s}
+                  {suggestion}
                 </button>
               ))}
             </div>
 
-            <div className="mt-3 text-xs text-gray-400">
-              Tip: ask about leads, booking, or support automation.
+            <div className="mt-3 text-xs text-slate-400">
+              Tip: ask about leads, bookkeeping, custom workflow automation, or website revamps.
             </div>
           </div>
 
           <form
-            className="border-t border-gray-100 p-3"
-            onSubmit={(e) => {
-              e.preventDefault();
+            className="border-t border-slate-200 p-3"
+            onSubmit={(event) => {
+              event.preventDefault();
               handleSend();
             }}
           >
@@ -246,14 +267,14 @@ export default function ChatAgentWidget() {
               <input
                 ref={inputRef}
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about chatbots…"
-                className="h-11 flex-1 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none"
+                onChange={(event) => setInput(event.target.value)}
+                placeholder="Ask about Steinbots..."
+                className="h-11 flex-1 border border-slate-300 bg-white px-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#0b79d0] focus:ring-2 focus:ring-cyan-100"
                 aria-label="Message"
               />
               <button
                 type="submit"
-                className="grid h-11 w-11 place-items-center rounded-xl bg-blue-600 text-white shadow hover:bg-blue-700 transition disabled:opacity-40"
+                className="grid h-11 w-11 place-items-center bg-[#07111f] text-white transition hover:bg-[#0b79d0] disabled:opacity-40"
                 disabled={!input.trim() || isTyping}
                 aria-label="Send"
               >

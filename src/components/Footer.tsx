@@ -1,78 +1,114 @@
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { seoPages } from '../data/seoPages';
+
+const services = [
+  ['Steinbach AI', '/steinbach-ai'],
+  ['AI Automation Steinbach', '/ai-automation-steinbach'],
+  ['AI Chatbots Steinbach', '/ai-chatbots-steinbach'],
+  ['Bookkeeping Automation', '/bookkeeping-automation-steinbach'],
+  ['Website Revamp', '/website-revamp-steinbach'],
+  ['Custom Automation Manitoba', '/custom-automation-manitoba'],
+];
+
+const company = [
+  ['About Us', '#about'],
+  ['Pricing', '#pricing'],
+  ['Contact', '#contact'],
+  ['Portfolio', '#portfolio'],
+];
+
+const serviceAreaLinks = seoPages.filter((page) => page.path.startsWith('/service-areas/'));
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
+    <footer className="border-t border-slate-200 bg-white py-14 text-[#07111f]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="md:col-span-1">
+            <a href="#top" className="inline-flex" aria-label="Steinbots home">
               <img
-                src="/brand/steinbots-logo.png"
+                src="/brand/steinbots-logo-gpt2-v1-cropped.png"
                 alt="Steinbots"
-                className="h-11 w-auto rounded bg-white/95 p-1"
+                className="h-9 w-auto"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <p className="text-gray-400 mb-4">
-              AI automation solutions for businesses in Steinbach, MB and beyond.
+            </a>
+            <p className="mt-5 max-w-sm leading-7 text-slate-600">
+              AI agents, bookkeeping workflows, custom software, and automation systems for businesses in
+              Steinbach, MB and beyond.
             </p>
-            <div className="flex space-x-3">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <div className="mt-6 flex gap-3">
+              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center border border-slate-200 bg-[#f7f9fc] text-slate-600 transition hover:border-cyan-300 hover:bg-cyan-50 hover:text-[#0b79d0]"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Services</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#features" className="hover:text-white transition">AI Chatbots</a></li>
-              <li><a href="#features" className="hover:text-white transition">Appointment Scheduling</a></li>
-              <li><a href="#features" className="hover:text-white transition">Website Design</a></li>
-              <li><a href="#addons" className="hover:text-white transition">Add-On Services</a></li>
+            <h3 className="text-lg font-bold">Services</h3>
+            <ul className="mt-5 space-y-3 text-slate-600">
+              {services.map(([label, href]) => (
+                <li key={label}>
+                  <a href={href} className="transition hover:text-[#0b79d0]">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#about" className="hover:text-white transition">About Us</a></li>
-              <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
-              <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
+            <h3 className="text-lg font-bold">Company</h3>
+            <ul className="mt-5 space-y-3 text-slate-600">
+              {company.map(([label, href]) => (
+                <li key={label}>
+                  <a href={`/${href}`} className="transition hover:text-[#0b79d0]">
+                    {label}
+                  </a>
+                </li>
+              ))}
+              {serviceAreaLinks.map((page) => (
+                <li key={page.path}>
+                  <a href={page.path} className="transition hover:text-[#0b79d0]">
+                    Niverville AI Automation
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>hello@steinbots.com</li>
-              <li>(204) 123-4567</li>
+            <h3 className="text-lg font-bold">Contact</h3>
+            <ul className="mt-5 space-y-3 text-slate-600">
+              <li>
+                <a href="mailto:hello@steinbots.com" className="transition hover:text-[#0b79d0]">
+                  hello@steinbots.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+12041234567" className="transition hover:text-[#0b79d0]">
+                  (204) 123-4567
+                </a>
+              </li>
               <li>Steinbach, MB</li>
               <li>Canada</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Steinbots. All rights reserved.
-          </p>
-          <div className="flex space-x-6 text-sm text-gray-400">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms of Service</a>
-            <a href="#" className="hover:text-white transition">Cookie Policy</a>
+        <div className="mt-12 flex flex-col justify-between gap-5 border-t border-slate-200 pt-7 text-sm text-slate-500 md:flex-row md:items-center">
+          <p>Copyright 2026 Steinbots. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="#" className="transition hover:text-[#0b79d0]">Privacy Policy</a>
+            <a href="#" className="transition hover:text-[#0b79d0]">Terms of Service</a>
+            <a href="#" className="transition hover:text-[#0b79d0]">Cookie Policy</a>
           </div>
         </div>
       </div>
