@@ -32,67 +32,67 @@ const addons = [
   {
     icon: ReceiptText,
     title: 'Receipt & Document Intake',
-    price: '$149/month',
+    price: 'Additional Service',
     description: 'Collect receipts, invoices, statements, and bookkeeping documents before month-end chaos starts.',
   },
   {
     icon: ClipboardCheck,
     title: 'Monthly Close Checklist',
-    price: '$199/month',
+    price: 'Additional Service',
     description: 'Flag missing receipts, uncategorized items, unpaid invoices, and follow-ups that need attention.',
   },
   {
     icon: Code2,
     title: 'Custom Internal Tool',
-    price: 'Quote',
+    price: 'Additional Service',
     description: 'A focused dashboard, intake portal, calculator, reporting view, or staff workflow around your exact process.',
   },
   {
     icon: Phone,
     title: 'Call Tracking & Recording',
-    price: '$49/month',
+    price: 'Additional Service',
     description: 'Track calls from campaigns with dedicated numbers and review call quality.',
   },
   {
     icon: Mail,
     title: 'Email Marketing Automation',
-    price: '$79/month',
+    price: 'Additional Service',
     description: 'Automated campaigns, drip sequences, review requests, and segmentation with analytics.',
   },
   {
     icon: Users,
     title: 'CRM & Pipeline Management',
-    price: '$99/month',
+    price: 'Additional Service',
     description: 'Customer relationship management with visual sales pipelines, statuses, reminders, and task automation.',
   },
   {
     icon: TrendingUp,
     title: 'Sales Funnels & Landing Pages',
-    price: '$69/month',
+    price: 'Additional Service',
     description: 'Focused pages and funnels for quotes, consultations, applications, or campaign traffic.',
   },
   {
     icon: FileText,
     title: 'Automated Invoicing & Quotes',
-    price: '$89/month',
+    price: 'Additional Service',
     description: 'Quote, invoice, payment-link, and follow-up workflows connected to your existing tools where possible.',
   },
   {
     icon: Megaphone,
     title: 'Reputation Management',
-    price: '$59/month',
+    price: 'Additional Service',
     description: 'Automated review requests and monitoring for your online reputation.',
   },
   {
     icon: CreditCard,
     title: 'Payment Processing',
-    price: '$29/month',
+    price: 'Additional Service',
     description: 'Text-to-pay, payment links, and secure payment collection with Stripe or compatible processors.',
   },
   {
     icon: BarChart3,
     title: 'Advanced Analytics & Reporting',
-    price: '$89/month',
+    price: 'Additional Service',
     description: 'Dashboards for leads, revenue, open invoices, source tracking, and operational bottlenecks.',
   },
 ];
@@ -159,7 +159,7 @@ export default function AddOns() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="text-lg font-bold text-[#07111f]">{addon.title}</h3>
-                <div className="mt-3 text-2xl font-bold text-[#0b79d0]">{addon.price}</div>
+                <div className="mt-3 text-xl font-bold text-[#0b79d0]">{addon.price}</div>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{addon.description}</p>
               </div>
             );
